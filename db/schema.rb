@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217234111) do
+ActiveRecord::Schema.define(version: 20150217235041) do
 
   create_table "zombies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "weapon"
   end
 
 end
