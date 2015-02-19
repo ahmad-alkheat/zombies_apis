@@ -15,4 +15,19 @@ class Api::ZombiesController < ApplicationController
     zombie = Zombie.find(params[:id])
     render json: zombie, status: 200
   end
+
+  def create
+    zombie = Zombie.new(zombie_params)
+    if zombie.save
+      render json: zombie, status: 201, location: api_zombie_url(zombie)
+    else
+      render json: zombie.errors, status: 422
+    end
+  end
+
+  private
+    def zombie_params
+      params.require(:zombie).permit(:name, :weapon)
+    end
+
 end
